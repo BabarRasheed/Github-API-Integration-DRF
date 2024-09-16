@@ -40,25 +40,6 @@ class InviteCollaborator(APIView):
         except Exception as e:
             return Response({"error": f"An error occurred: {str(e)}"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-# class InviteCollaborator(APIView):
-#     def post(self, request):
-#         try:
-#             repo_name = request.data.get('repo')
-#             username = request.data.get('username')
-#             permission = request.data.get('permission', 'push')
-#             owner = 'Babar-developer'  # You can get this from the .env file or repo data
-#
-#             if not repo_name or not username:
-#                 return Response({"error": "Repository name and username are required"},
-#                                 status=status.HTTP_400_BAD_REQUEST)
-#
-#             result = invite_collaborator(owner, repo_name, username, permission)
-#             return Response(result, status=status.HTTP_201_CREATED)
-#         except GitHubAPIError as e:
-#             return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
-#         except Exception as e:
-#             return Response({"error": f"An error occurred: {str(e)}"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-
 
 class RemoveCollaborator(APIView):
     def post(self, request):
